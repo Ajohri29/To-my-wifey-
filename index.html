@@ -1,1 +1,104 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chocolate Day Surprise 🍫❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #8d5524, #d2691e);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 25px;
+      border-radius: 20px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    h1 { font-size: 2rem; margin-bottom: 10px; }
+    h2 { font-size: 1.2rem; font-weight: normal; margin-bottom: 20px; }
+    button {
+      background: #ff4d6d;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .hidden { display: none; }
+    .page { animation: fadeIn 1s ease; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .photos img {
+      width: 100%;
+      border-radius: 15px;
+      margin: 10px 0;
+    }
+    .couple {
+      font-size: 3rem;
+      animation: bounce 2s infinite;
+      margin: 15px 0;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .footer { margin-top: 15px; font-size: 0.9rem; opacity: 0.9; }
+  </style>
+</head>
+<body>  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+  </audio>  <div class="card"><!-- PAGE 1 -->
+<div id="page1" class="page">
+  <h1>Hi Ishita 🍫❤️</h1>
+  <h2>I made a Chocolate Day surprise just for you</h2>
+  <button onclick="nextPage(2)">Tap to continue 🍫</button>
+</div>
 
+<!-- PAGE 2 -->
+<div id="page2" class="page hidden">
+  <h1>I Love You ❤️</h1>
+  <div class="couple">👦🏻💞👧🏻</div>
+  <h2>You’re sweeter than every chocolate in the world</h2>
+  <button onclick="nextPage(3)">Reveal more 🍫</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page hidden">
+  <h1>Happy Chocolate Day 🍫</h1>
+  <div class="photos">
+    <!-- Replace these image links with your photos -->
+    <img src="https://via.placeholder.com/400x250?text=Our+Photo+1" />
+    <img src="https://via.placeholder.com/400x250?text=Our+Photo+2" />
+  </div>
+  <h2>Every bite reminds me of you 😌</h2>
+  <div class="footer">Forever yours ❤️<br/>– Arpit</div>
+</div>
+
+  </div>  <script>
+    function nextPage(n) {
+      document.getElementById('bgMusic').play();
+      document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+      document.getElementById('page' + n).classList.remove('hidden');
+    }
+
+    // Show only on Chocolate Day (Feb 9)
+    const today = new Date();
+    const isChocolateDay = today.getMonth() === 1 && today.getDate() === 9;
+    if (!isChocolateDay) {
+      document.body.innerHTML = '<div class="card"><h1>🍫 Come back on Chocolate Day ❤️</h1><h2>This surprise unlocks only on Chocolate Day</h2></div>';
+    }
+  </script></body>
+</html>
